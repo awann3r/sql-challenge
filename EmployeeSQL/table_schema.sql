@@ -1,6 +1,8 @@
 -- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
+--create table departments
+DROP TABLE departments
 
 CREATE TABLE "departments" (
     "dept_no" VARCHAR   NOT NULL,
@@ -10,15 +12,24 @@ CREATE TABLE "departments" (
      )
 );
 
+--create table dept_emp 
+DROP TABLE dept_emp
+
 CREATE TABLE "dept_emp" (
     "emp_no" INT   NOT NULL,
     "dept_no" VARCHAR   NOT NULL
 );
 
+--create table dept_manager 
+DROP TABLE dept_manager
+
 CREATE TABLE "dept_manager" (
     "dept_no" VARCHAR   NOT NULL,
     "emp_no" INT   NOT NULL
 );
+
+--create table employees 
+DROP TABLE employees
 
 CREATE TABLE "employees" (
     "emp_no" INT   NOT NULL,
@@ -33,10 +44,16 @@ CREATE TABLE "employees" (
      )
 );
 
+--create table salaries
+DROP TABLE salaries
+
 CREATE TABLE "salaries" (
     "emp_no" INT   NOT NULL,
     "salary" BIGINT   NOT NULL
 );
+
+--create table titles
+DROP TABLE titles
 
 CREATE TABLE "titles" (
     "title_id" VARCHAR   NOT NULL,
@@ -46,6 +63,7 @@ CREATE TABLE "titles" (
      )
 );
 
+-- alter tables to relate to each other using foreign keys
 ALTER TABLE "dept_emp" ADD CONSTRAINT "fk_dept_emp_emp_no" FOREIGN KEY("emp_no")
 REFERENCES "employees" ("emp_no");
 
